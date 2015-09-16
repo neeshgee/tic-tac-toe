@@ -1,0 +1,109 @@
+
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+body {
+  background-color: #3399FF;
+}
+
+table {
+  background-color: #3399FF;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+td:hover {
+  background-color: white;
+}
+
+td {
+  line-height: 200px;
+  font-size: 58px;
+  font-family: 'Poiret One';
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  font-family: 'Poiret One';
+  font-size: 100px;
+}
+
+.board {
+  display:flex;
+  flex-direction: row;
+}
+
+.row1 {
+  display: flex;
+  flex-direction: row;
+}
+.row2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.row3 {
+  display: flex;
+  flex-direction: row;
+}
+.square1 {
+  display: flex;
+  border: 1px solid white;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+}
+.square2 {
+  display: flex;
+  border: 1px solid white;
+  width: 200px;
+  height: 200px;
+}
+.square3 {
+  display: flex;
+  border: 1px solid white;
+  width: 200px;
+  height: 200px;
+}
+.square4 {
+  display: flex;
+  border: 1px solid white;
+  width: 200px;
+  height: 200px;
+}
+.square5 {
+  display: flex;
+  border: 1px solid white;
+  width: 200px;
+  height: 200px;
+}
+.square6 {
+  display: flex;
+  border: 1px solid white;
+  width: 200px;
+  height: 200px;
+}
+.square7 {
+  display: flex;
+  border: 1px solid white;
+  width: 200px;
+  height: 200px;
+}
+.square8 {
+  display: flex;
+  border: 1px solid white;
+  width: 200px;
+  height: 200px;
+}
+.square9 {
+  display: flex;
+  border: 1px solid white;
+  width: 200px;
+  height: 200px;
+}
+.status {
+  text-align: center;
+  font-family: 'Poiret One';
+  font-size: 30px;
+}

@@ -1,0 +1,29 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "tic tac toe game",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browser-sync": "^2.9.3",
+    "gulp": "^3.9.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-gh-pages": "^0.5.2",
+    "gulp-sass": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "tic tac toe"
+  },
+  "keywords": [
+    "tic",
+    "tac",
+    "and",
+    "toe"
+  ],
+  "author": "tanessia gordon",
+  "license": "MIT"
+}
