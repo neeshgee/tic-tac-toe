@@ -1,55 +1,57 @@
-$(document).ready (function () {
+$(document).ready(function() {
+  const playerOneToken = 'X';
+  const playerTwoToken = 'O';
 
-  const playerX = 'X';
-  const playerO = 'O';
+  var currentPlayerToken = playerOneToken;
 
-  var currentPlayer = playerX;
-  var Winner = false;
-  var winGame = [
-    [0,1,2], [3,4,5], [6,7,8], [0,3,6],
-    [1,4,7], [2,5,8], [0,4,8], [2,4,6]
+  var hasWinner = false;
+
+  var winConditions = [
+    [0,1,2], [3,4,5], [6,7,8],
+    [0,3,6], [1,4,7], [2,5,8],
+    [0,4,8], [2,4,6]
   ];
 
-  var setStatus = function (msg) {
-  $('div.status').text(msg);
-}
-
-  var startOver = function () {
-    Winner = false;
+  var resetBoard = function() {
+    hasWinner = false;
     $('.board td').text('');
-    setStatus("Ready to Play");
+    $('.board td').removeClass('played');
+    setStatus("Let's play Tic-Tac-Toe! " + playerOneToken + " will go first");
   }
 
-  var checkWinner = function () {
-    [playerX, playerO].forEach(function (playerToken) {
-      winGame.forEach(function (winningMoves) {
-      var won = winningMoves.every(function(space) {
-        var cell =$('.board td') [space];
-        return $(cell).text() == player;
+  var checkForWin = function() {
+    [playerOneToken, playerTwoToken].forEach(function (playerToken) {
+      winConditions.forEach(function(winningMoves) {
+        var winner = winningMoves.every(function(space) {
+          var cell = $('.board td')[space];
+          return $(cell).text() == playerToken;
+        });
+
+        if (winner) {
+          setStatus(playerToken + " is the winner!");
+          hasWinner = true;
+          setTimeout(resetBoard, 3000);
+        }
       });
-
-      if (winner) {
-        setStatus(playerToken + "has won the game!");
-        Winner = true;
-        setTimeout(startOver, 1000);
-      }
     });
-  });
+  }
 
+  var setStatus = function(msg) {
+    $('.status').text(msg);
+  }
 
   $('.board td').click(function () {
-    $(this).text(currentPlayer);
+    if (!$(this).hasClass('played') && !hasWinner) {
+      $(this).text(currentPlayerToken);
+      $(this).addClass('played');
 
-    if (currentPlayer === playerX) {
-      currentPlayer = playerO;
+      currentPlayerToken = currentPlayerToken === playerOneToken
+        ? playerTwoToken : playerOneToken;
+
+      setStatus("It's " + currentPlayerToken + "'s turn now!");
     }
-    else {
-      currentPlayer = playerX;
+    checkForWin();
+  });
 
-    setStatus("It's " + currentPlayer + "'s turn now");
-  };
-
-  checkWinner();
+  resetBoard();
 });
-
-   startOver()
